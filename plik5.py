@@ -10,3 +10,10 @@ elif wiek > 18:
     print("Jesteś pełnoletni.")
 else:
     print("Nie jesteś pełnoletni.")
+
+# == porównywanie
+# != jest różne
+# > większe
+# < mniejsze
+# >= większe lub równe
+# <= mniejsze lub równe

@@ -1,5 +1,8 @@
 tekst = input("Podaj tekst: ")
-t = tekst.lower().replace(" ", "")
+t = tekst.lower().replace(" ", "").replace(".", "").replace(",", "")
+
+# print(t)
+# print(t[::-1])
 
 print(f"Twój tekst: {tekst}")
 

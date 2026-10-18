@@ -5,7 +5,7 @@
 
 # print(s[-1])
 #    0123456789012345678
-s = "X Uniwersytet WSB Merito  "
+s = "  Uniwersytet WSB Merito  "
 
 print(s)
 print(s.upper())

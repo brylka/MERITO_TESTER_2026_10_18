@@ -1,8 +1,9 @@
 tekst = input("Podaj tekst: ")
+t = tekst.lower().replace(" ", "")
 
 print(f"Twój tekst: {tekst}")
 
-if tekst.lower().replace(" ", "") == tekst[::-1].lower().replace(" ", ""):
+if t == t[::-1]:
     print("Twój tekst jest palindromem.")
 else:
     print("Twój tekst NIE jest palindromem.")

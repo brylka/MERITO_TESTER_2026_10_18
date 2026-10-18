@@ -27,3 +27,10 @@ s = "Bartosz Bryniarski"
 
 print(s.startswith('Bart'))
 print(s.endswith('ski'))
+
+print(s.split(" "))
+print("".join(s.split(" ")))
+print(s.replace(" ", ""))
+
+# Kamil Ślimak
+# kamilŚ limaK

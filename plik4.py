@@ -7,11 +7,11 @@ b = int(input("Podaj liczbę b: "))
 print(f'{a} + {b} = {a + b}')
 print(f'{a} - {b} = {a - b}')
 print(f'{a} * {b} = {a * b}')
-if b == 0:
-    print("Nie dzieli się przez zero!")
-else:
+if b != 0:
     print(f'{a} : {b} = {a / b}')
     print(f'Część całkowita {a} : {b} = {a // b}')
     print(f'Reszta z dzielenia {a} : {b} = {a % b}')
+else:
+    print("Nie dzieli się przez zero!")
 print(f"{a} do potęgi {b} = {a ** b}")
 

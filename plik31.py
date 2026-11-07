@@ -1,5 +1,5 @@
 def suma(a, b):
-    return a + b
+    return (a*1000 + b*1000)/1000
 
 def roznica(a, b):
     return a - b

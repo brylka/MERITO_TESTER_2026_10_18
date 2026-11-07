@@ -41,4 +41,5 @@ stat = statystyki([3,5,4,6,2,3,4])
 # print(stat[3])
 # help(statystyki)
 
-print(suma("4","5"))
+if __name__ == '__main__':
+    print(suma(4,5))

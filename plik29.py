@@ -16,3 +16,10 @@ l = ["A","B","C","Bartosz"]
 print(s[1], l[1])
 print(s["imie"])
 print(l[3])
+print("*"*40)
+
+l2 = [1, 2, "Bartosz", True, ["pierwszy", 2, {
+    "imię": "Tomasz", 'wiek': 30, "wsp": (34, 45)
+}]]
+
+print(l2[4][2]["wsp"][1])

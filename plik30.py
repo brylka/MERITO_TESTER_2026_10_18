@@ -4,7 +4,7 @@ def przywitaj(imie, wiek, kraj = "Polska"):
 
 # przywitaj("Bartosz", 18)
 
-def suma(a, b):
+def suma(a:float, b:float) -> float:
     return a+b
 
 # a = int(input("Podaj a: "))
@@ -39,4 +39,6 @@ stat = statystyki([3,5,4,6,2,3,4])
 
 # print(e4)
 # print(stat[3])
-help(statystyki)
+# help(statystyki)
+
+print(suma("4","5"))

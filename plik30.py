@@ -15,14 +15,28 @@ def suma(a, b):
 def czy_parzysta(n):
     return n % 2 == 0
 
-print(czy_parzysta(3))
+# print(czy_parzysta(3))
 
 def statystyki(liczby):
+    """
+    Przyjmuje jako parametr listę liczb,
+    zwraca czter wartości: wartość minimalna,
+    wartość maksymalna, sumę liczb i średnią arytmetyczną.
+
+    Args:
+        liczby: lista floatów
+    Returns:
+        Maksimum
+        Minimum
+        Suma
+        Średnia
+    """
     return (min(liczby), max(liczby),
             sum(liczby), round(sum(liczby) / len(liczby),2))
 
 e1, e2, e3, e4 = statystyki([3,5,4,6,2,3,4])
 stat = statystyki([3,5,4,6,2,3,4])
 
-print(e4)
-print(stat[3])
+# print(e4)
+# print(stat[3])
+help(statystyki)

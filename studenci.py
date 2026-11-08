@@ -28,7 +28,12 @@ class BazaStudentow:
         student.nazwisko = nowe_nazwisko
         student.kierunek = nowy_kierunek
         return True
-
+    def usun(self, nr_albumu):
+        student = self.znajdz(nr_albumu)
+        if student is None:
+            return False
+        self.studenci.remove(student)
+        return True
 
 if __name__ == "__main__":
     baza = BazaStudentow()
@@ -44,7 +49,10 @@ if __name__ == "__main__":
     baza.edytuj("SP1234", "Tomasz", "Bryniarski", "Tester")
     print("Po edycji")
     print(baza.znajdz("SP1234"))
-
+    print("="*40)
+    print(baza.usun("SP1234"))
+    for student in baza.studenci:
+        print(student)
     # print(bartosz)
     # print(anna)
 

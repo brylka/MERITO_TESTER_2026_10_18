@@ -44,7 +44,7 @@ def pokaz_menu():
     print("5. Usuń studenta")
     print("6. Wyjdź z programu")
 
-if __name__ == "__main__":
+def main():
     baza = BazaStudentow()
     while True:
         pokaz_menu()
@@ -98,5 +98,5 @@ if __name__ == "__main__":
         else:
             print("Nieznana opcja! Wybierz istniejącą.")
 
-
-
+if __name__ == "__main__":
+    main()

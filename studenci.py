@@ -6,15 +6,23 @@ class Student:
         self.kierunek = kierunek
     def __str__(self):
         return f"{self.nr_albumu} | {self.imie} {self.nazwisko} | {self.kierunek}"
-    def set_imie(self, nowe_imie):
-        self.imie = nowe_imie
+
+class BazaStudentow:
+    def __init__(self):
+        self.studenci = []
+    def dodaj(self, student):
+        self.studenci.append(student)
+        return True
 
 
 if __name__ == "__main__":
-    bartosz = Student(1234, "Bartosz", "Bryniarski", "Tester")
-    anna = Student(1235, "Anna", "Nowak", "Python")
-    print(bartosz)
-    print(anna)
-    bartosz.set_imie("Paweł")
-    bartosz.nr_albumu = 1235
-    print(bartosz)
+    baza = BazaStudentow()
+    baza.dodaj(Student(1234, "Bartosz", "Bryniarski", "Tester"))
+    baza.dodaj(Student(1235, "Anna", "Nowak", "Python"))
+    baza.dodaj(Student(2345, "Tomasz", "Kowalski", "Tester"))
+    for stident in baza.studenci:
+        print(stident)
+    # print(bartosz)
+    # print(anna)
+
+

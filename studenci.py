@@ -1,3 +1,6 @@
+import csv
+
+
 class Student:
     def __init__(self, nr_albumu, imie, nazwisko, kierunek):
         self.nr_albumu = nr_albumu
@@ -8,8 +11,15 @@ class Student:
         return f"{self.nr_albumu} | {self.imie} {self.nazwisko} | {self.kierunek}"
 
 class BazaStudentow:
-    def __init__(self):
+    def __init__(self, plik):
         self.studenci = []
+        self.plik = plik
+    def zapisz(self):
+        with open(self.plik, "w", encoding="utf-8", newline="") as f:
+            writer = csv.writer(f)
+            writer.writerow(["nr_albumu", "imie", "nazwisko", "kierunek"])
+            for student in self.studenci:
+                writer.writerow([student.nr_albumu, student.imie, student.nazwisko, student.kierunek])
     def znajdz(self, nr_albumu):
         for student in self.studenci:
             if student.nr_albumu == nr_albumu:
@@ -19,6 +29,7 @@ class BazaStudentow:
         if self.znajdz(student.nr_albumu) is not None:
             return False
         self.studenci.append(student)
+        self.zapisz()
         return True
     def edytuj(self, nr_albumu, nowe_imie, nowe_nazwisko, nowy_kierunek):
         student = self.znajdz(nr_albumu)
@@ -27,12 +38,14 @@ class BazaStudentow:
         student.imie = nowe_imie
         student.nazwisko = nowe_nazwisko
         student.kierunek = nowy_kierunek
+        self.zapisz()
         return True
     def usun(self, nr_albumu):
         student = self.znajdz(nr_albumu)
         if student is None:
             return False
         self.studenci.remove(student)
+        self.zapisz()
         return True
 
 def pokaz_menu():
@@ -45,7 +58,7 @@ def pokaz_menu():
     print("6. Wyjdź z programu")
 
 def main():
-    baza = BazaStudentow()
+    baza = BazaStudentow("studenci.csv")
     while True:
         pokaz_menu()
         wybor = input("Wybierz opcję: ")
@@ -93,6 +106,7 @@ def main():
             else:
                 print("Nie ma studenta z podanym nr albumu.")
         elif wybor == "6":
+            baza.zapisz()
             print("Dziękuję za używanie programu!")
             break
         else:

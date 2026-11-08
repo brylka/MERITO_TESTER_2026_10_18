@@ -86,6 +86,12 @@ if __name__ == "__main__":
                 nowy_kierunek = input("Podaj nowy kierunek: ")
                 baza.edytuj(nr_albumu, nowe_imie, nowe_nazwisko, nowy_kierunek)
                 print("Zapisano zmiany.")
+        elif wybor == "5":
+            nr_albumu = input("Nr albumu: ")
+            if baza.usun(nr_albumu):
+                print("Usunięto studenta.")
+            else:
+                print("Nie ma studenta z podanym nr albumu.")
         elif wybor == "6":
             print("Dziękuję za używanie programu!")
             break

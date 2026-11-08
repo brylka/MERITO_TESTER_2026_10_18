@@ -67,6 +67,13 @@ if __name__ == "__main__":
                 print("Dodano studenta.")
             else:
                 print("Student o taki numerze albumu istnieje.")
+        elif wybor == "3":
+            nr_albumu = input("Nr albumu: ")
+            student = baza.znajdz(nr_albumu)
+            if student:
+                print(student)
+            else:
+                print("Student nie istnieje.")
         elif wybor == "6":
             print("Dziękuję za używanie programu!")
             break

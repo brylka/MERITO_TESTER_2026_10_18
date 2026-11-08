@@ -20,15 +20,31 @@ class BazaStudentow:
             return False
         self.studenci.append(student)
         return True
+    def edytuj(self, nr_albumu, nowe_imie, nowe_nazwisko, nowy_kierunek):
+        student = self.znajdz(nr_albumu)
+        if student is None:
+            return False
+        student.imie = nowe_imie
+        student.nazwisko = nowe_nazwisko
+        student.kierunek = nowy_kierunek
+        return True
 
 
 if __name__ == "__main__":
     baza = BazaStudentow()
-    baza.dodaj(Student(1234, "Bartosz", "Bryniarski", "Tester"))
-    baza.dodaj(Student(1235, "Anna", "Nowak", "Python"))
-    baza.dodaj(Student(1235, "Tomasz", "Kowalski", "Tester"))
-    for stident in baza.studenci:
-        print(stident)
+    baza.dodaj(Student("SP1234", "Bartosz", "Bryniarski", "Tester"))
+    baza.dodaj(Student("1235", "Anna", "Nowak", "Python"))
+    baza.dodaj(Student("1235", "Tomasz", "Kowalski", "Tester"))
+    for student in baza.studenci:
+        print(student)
+    print("="*40)
+    print(baza.znajdz("SP1234"))
+    print(baza.znajdz("1235"))
+    print(baza.znajdz("1236"))
+    baza.edytuj("SP1234", "Tomasz", "Bryniarski", "Tester")
+    print("Po edycji")
+    print(baza.znajdz("SP1234"))
+
     # print(bartosz)
     # print(anna)
 

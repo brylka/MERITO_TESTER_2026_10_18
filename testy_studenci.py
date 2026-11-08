@@ -30,8 +30,23 @@ def test_nie_mozna_dodac_studenta_z_istniejacym_nr_albumu():
     assert baza.dodaj(Student('1234', 'Anna', 'Nowak', 'Programista')) is False
     assert len(baza.studenci) == 1
 
+def test_znajdz_nieistniejacego_studenta():
+    baza = nowa_baza()
+    assert baza.znajdz("99999") is None
+
+def test_znajdz_istniejacego_studenta():
+    baza = nowa_baza()
+    # baza.dodaj(dodaj_bartosza())
+    # assert str(baza.znajdz("1234")) == '1234 | Bartosz Bryniarski | Tester'
+    bartosz = dodaj_bartosza()
+    baza.dodaj(bartosz)
+    assert baza.znajdz("1234") is bartosz
+
+
 if __name__ == "__main__":
     test_odpowiedzi_obiektu()
     test_nowa_pusta_baza_studentow()
     test_dodania_studenta()
     test_nie_mozna_dodac_studenta_z_istniejacym_nr_albumu()
+    test_znajdz_nieistniejacego_studenta()
+    test_znajdz_istniejacego_studenta()

@@ -35,25 +35,25 @@ class BazaStudentow:
         self.studenci.remove(student)
         return True
 
+def pokaz_menu():
+    print("\n=== OBSŁUGA STUDENTÓW ===")
+    print("1. Lista studentów")
+    print("2. Dodaj studenta")
+    print("3. Znajdź studenta")
+    print("4. Edytuj studenta")
+    print("5. Usuń studenta")
+    print("6. Wyjdź z programu")
+
 if __name__ == "__main__":
     baza = BazaStudentow()
-    baza.dodaj(Student("SP1234", "Bartosz", "Bryniarski", "Tester"))
-    baza.dodaj(Student("1235", "Anna", "Nowak", "Python"))
-    baza.dodaj(Student("1235", "Tomasz", "Kowalski", "Tester"))
-    for student in baza.studenci:
-        print(student)
-    print("="*40)
-    print(baza.znajdz("SP1234"))
-    print(baza.znajdz("1235"))
-    print(baza.znajdz("1236"))
-    baza.edytuj("SP1234", "Tomasz", "Bryniarski", "Tester")
-    print("Po edycji")
-    print(baza.znajdz("SP1234"))
-    print("="*40)
-    print(baza.usun("SP1234"))
-    for student in baza.studenci:
-        print(student)
-    # print(bartosz)
-    # print(anna)
+    while True:
+        pokaz_menu()
+        wybor = input("Wybierz opcję: ")
+
+        if wybor == "6":
+            print("Dziękuję za używanie programu!")
+            break
+        else:
+            print("Nieznana opcja! Wybierz istniejącą.")
 
 

@@ -21,8 +21,14 @@ def test_dodania_studenta():
     assert baza.dodaj(Student('1234', 'Bartosz', 'Bryniarski', 'Tester')) is True
     assert len(baza.studenci) == 1
 
+def test_nie_mozna_dodac_studenta_z_istniejacym_nr_albumu():
+    baza = nowa_baza()
+    baza.dodaj(Student('1234', 'Bartosz', 'Bryniarski', 'Tester'))
+    assert baza.dodaj(Student('1234', 'Anna', 'Nowak', 'Programista')) is False
+    assert len(baza.studenci) == 1
 
 if __name__ == "__main__":
     test_odpowiedzi_obiektu()
     test_nowa_pusta_baza_studentow()
     test_dodania_studenta()
+    test_nie_mozna_dodac_studenta_z_istniejacym_nr_albumu()

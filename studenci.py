@@ -50,7 +50,17 @@ if __name__ == "__main__":
         pokaz_menu()
         wybor = input("Wybierz opcję: ")
 
-        if wybor == "6":
+        if wybor == "2":
+            print("Dodaj studenta:")
+            nr_albumu = input("Nr albumu: ")
+            imie = input("Imię: ")
+            nazwisko = input("Nazwisko: ")
+            kierunek = input("Kierunek: ")
+            if baza.dodaj(Student(nr_albumu, imie, nazwisko, kierunek)):
+                print("Dodano studenta.")
+            else:
+                print("Student o taki numerze albumu istnieje.")
+        elif wybor == "6":
             print("Dziękuję za używanie programu!")
             break
         else:

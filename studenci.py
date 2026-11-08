@@ -74,6 +74,18 @@ if __name__ == "__main__":
                 print(student)
             else:
                 print("Student nie istnieje.")
+        elif wybor == "4":
+            nr_albumu = input("Nr albumu: ")
+            student = baza.znajdz(nr_albumu)
+            if student is None:
+                print("Student nie istnieje.")
+            else:
+                print(student)
+                nowe_imie = input("Podaj nowe imię: ")
+                nowe_nazwisko = input("Podaj nowe nazwisko: ")
+                nowy_kierunek = input("Podaj nowy kierunek: ")
+                baza.edytuj(nr_albumu, nowe_imie, nowe_nazwisko, nowy_kierunek)
+                print("Zapisano zmiany.")
         elif wybor == "6":
             print("Dziękuję za używanie programu!")
             break

@@ -14,12 +14,21 @@ class BazaStudentow:
     def __init__(self, plik):
         self.studenci = []
         self.plik = plik
+        self.wczytaj()
     def zapisz(self):
         with open(self.plik, "w", encoding="utf-8", newline="") as f:
             writer = csv.writer(f)
             writer.writerow(["nr_albumu", "imie", "nazwisko", "kierunek"])
             for student in self.studenci:
                 writer.writerow([student.nr_albumu, student.imie, student.nazwisko, student.kierunek])
+    def wczytaj(self):
+        try:
+            with open(self.plik, encoding="utf-8", newline="") as f:
+                for wiersz in csv.DictReader(f):
+                    student = Student(wiersz["nr_albumu"], wiersz["imie"], wiersz["nazwisko"], wiersz["kierunek"])
+                    self.studenci.append(student)
+        except FileNotFoundError:
+            self.studenci = []
     def znajdz(self, nr_albumu):
         for student in self.studenci:
             if student.nr_albumu == nr_albumu:

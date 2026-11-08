@@ -3,6 +3,8 @@ import csv
 
 class Student:
     def __init__(self, nr_albumu, imie, nazwisko, kierunek):
+        if not imie:
+            raise ValueError("Imię nie może być puste")
         self.nr_albumu = nr_albumu
         self.imie = imie
         self.nazwisko = nazwisko
@@ -85,10 +87,13 @@ def main():
             imie = input("Imię: ")
             nazwisko = input("Nazwisko: ")
             kierunek = input("Kierunek: ")
-            if baza.dodaj(Student(nr_albumu, imie, nazwisko, kierunek)):
-                print("Dodano studenta.")
-            else:
-                print("Student o taki numerze albumu istnieje.")
+            try:
+                if baza.dodaj(Student(nr_albumu, imie, nazwisko, kierunek)):
+                    print("Dodano studenta.")
+                else:
+                    print("Student o taki numerze albumu istnieje.")
+            except ValueError as e:
+                print(f"Błąd: {e}")
         elif wybor == "3":
             nr_albumu = input("Nr albumu: ")
             student = baza.znajdz(nr_albumu)

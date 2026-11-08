@@ -9,6 +9,14 @@ def dodaj_bartosza():
 def test_odpowiedzi_obiektu():
     assert str(dodaj_bartosza()) == '1234 | Bartosz Bryniarski | Tester'
 
+def test_mozna_stworzyc_studenta_z_pustym_imieniem():
+    try:
+        Student("5555", "", "Nowak", "Tester")
+    except ValueError:
+        pass
+    else:
+        assert False, f"Oczekiwano ValueError"
+
 def nowa_baza():
     if os.path.exists(PLIK_TESTOWY):
         os.remove(PLIK_TESTOWY)
@@ -45,6 +53,7 @@ def test_znajdz_istniejacego_studenta():
 
 if __name__ == "__main__":
     test_odpowiedzi_obiektu()
+    test_mozna_stworzyc_studenta_z_pustym_imieniem()
     test_nowa_pusta_baza_studentow()
     test_dodania_studenta()
     test_nie_mozna_dodac_studenta_z_istniejacym_nr_albumu()

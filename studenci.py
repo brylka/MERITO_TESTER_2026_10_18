@@ -50,7 +50,14 @@ if __name__ == "__main__":
         pokaz_menu()
         wybor = input("Wybierz opcję: ")
 
-        if wybor == "2":
+        if wybor == "1":
+            if not baza.studenci:
+                print("Brak studentów")
+            else:
+                print("Lista studentów:")
+                for student in baza.studenci:
+                    print(student)
+        elif wybor == "2":
             print("Dodaj studenta:")
             nr_albumu = input("Nr albumu: ")
             imie = input("Imię: ")
